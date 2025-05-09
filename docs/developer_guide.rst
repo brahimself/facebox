@@ -13,7 +13,7 @@ Project layout
    │  └─ emotion.py            # FER+ emotion classifier
    ├─ run.py                   # webcam demo
    ├─ docs/                    # Sphinx documentation
-   ├─ notebooks/               # exploratory Jupyter notebooks
+   ├─ notebooks/               # exploratory colab notebooks
    └─ setup.py
 
 Algorithmic pipeline
@@ -39,20 +39,3 @@ Threshold tuning
 
 The *0.85* L2‑distance threshold trades off **precision** vs **recall**.  
 Adjust according to your dataset size and lighting conditions.
-
-Testing
--------
-
-Run the unit test suite:
-
-.. code-block:: bash
-
-   pytest -q
-
-Tests live beside modules in ``tests/`` and exercise:
-
-* face detection speed / accuracy (synthetic image fixtures)
-* embedding distance distribution on a mini‑dataset
-* emotion inference outputs
-
-Continuous Integration (CI) hooks run **ruff**, **black**, and **pytest** on every PR.

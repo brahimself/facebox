@@ -1,8 +1,9 @@
 Introduction
 ============
 
-FaceBox is a lightweight Python toolkit for **real‑time face recognition and facial‑emotion analysis** built on top of
-OpenCV’s *dnn* module.  
+FaceBox is a Python toolkit for **real‑time face recognition and facial‑emotion analysis** built on top of
+OpenCV’s *dnn* module. This project is made by Brahim JARRACHI KHAYYA and Ismail KHLIFI TAGZOUTI as a part of the course : Scientific Python.
+
 It offers:
 
 * **Face detection** using Haar‑cascade classifiers.
@@ -11,5 +12,3 @@ It offers:
 * **Emotion classification** (8 FER+ classes) via an ONNX network.
 * A **plug‑and‑play demo** (`run.py`) that works with any webcam.
 
-Whether you need a simple attendance kiosk, research prototype, or a teaching demo, FaceBox keeps the barrier
-to entry delightfully low.

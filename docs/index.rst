@@ -14,5 +14,4 @@ to deep dives into the internals of the library.
    usage
    api
    developer_guide
-   contributing
-   changelog
+
