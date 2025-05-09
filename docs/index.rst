@@ -1,17 +1,28 @@
-.. Facebox documentation master file, created by
-   sphinx-quickstart on Fri Apr  4 00:18:48 2025.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+FaceBox Documentation
+======================
 
-Facebox documentation
-=====================
+Welcome to the documentation for the **FaceBox** project!
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
-
+FaceBox is a simple Python toolbox for detecting faces in real-time using OpenCV's Haar cascades.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Modules:
 
+   api
+
+Installation
+------------
+To install the project locally:
+
+.. code-block:: bash
+
+   pip install -e .
+
+Usage
+-----
+To run the detector:
+
+.. code-block:: bash
+
+   python run.py
