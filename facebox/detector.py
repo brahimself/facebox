@@ -1,16 +1,25 @@
 import cv2
+import numpy as np
 
-def load_detector(xml_path: str = "haarcascade_frontalface_default.xml") -> cv2.CascadeClassifier:
-    detector = cv2.CascadeClassifier()
-    if not detector.load(cv2.samples.findFile(xml_path)):
-        raise IOError("Error loading face cascade")
-    return detector
+net = cv2.dnn.readNetFromTorch('./openface.nn4.small2.v1.t7')
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + './haarcascade_frontalface_default.xml')
 
-def detect_and_display(detector: cv2.CascadeClassifier, frame):
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    gray = cv2.equalizeHist(gray)
-    faces = detector.detectMultiScale(gray)
-    for (x, y, w, h) in faces:
-        center = (x + w // 2, y + h // 2)
-        frame = cv2.ellipse(frame, center, (w // 2, h // 2), 0, 0, 360, (255, 0, 255), 4)
-    return frame
+def load_signatures(image_paths, label):
+    signature_total = np.zeros(128)
+    for image in image_paths:
+        frame = cv2.imread(image)
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        face_locations = face_cascade.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=5)
+        for (x, y, w, h) in face_locations:
+            face = frame[y:y+h, x:x+w]
+            blob = cv2.dnn.blobFromImage(face, 1.0 / 255, (96, 96), (0, 0, 0), swapRB=True, crop=False)
+            net.setInput(blob)
+            signature_total += net.forward().flatten()
+    return (signature_total / len(image_paths)).flatten()
+
+
+def get_signature(face):
+    blob = cv2.dnn.blobFromImage(face, 1.0 / 255, (96, 96), (0, 0, 0), swapRB=True, crop=False)
+    net.setInput(blob)
+    return net.forward()
+

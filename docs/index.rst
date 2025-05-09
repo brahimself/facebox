@@ -1,28 +1,18 @@
 FaceBox Documentation
-======================
+=====================
 
-Welcome to the documentation for the **FaceBox** project!
-
-FaceBox is a simple Python toolbox for detecting faces in real-time using OpenCV's Haar cascades.
+Welcome to the **FaceBox** project documentation! This site guides you through everything from installation and quick‑start
+to deep dives into the internals of the library.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Modules:
+   :caption: Contents:
 
+   introduction
+   installation
+   quickstart
+   usage
    api
-
-Installation
-------------
-To install the project locally:
-
-.. code-block:: bash
-
-   pip install -e .
-
-Usage
------
-To run the detector:
-
-.. code-block:: bash
-
-   python run.py
+   developer_guide
+   contributing
+   changelog
